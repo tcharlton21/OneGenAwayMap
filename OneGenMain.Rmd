@@ -1,0 +1,14 @@
+```{r}
+
+library(tidyverse)
+library(leaflet)
+
+data <- read_csv("countydata.csv")
+
+data %>% 
+leaflet() %>%
+addProviderTiles(providers$Stamen.TonerLite, group = "Toner Lite") %>%
+addLayersControl(baseGroups = c("Toner Lite", "World Imagery")) %>%
+setView(lat = 33.736309, lng = -84.388298, zoom = 6)
+
+```
